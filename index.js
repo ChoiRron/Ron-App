@@ -1,39 +1,30 @@
 import styled from "styled-components";
-
-
-const LeftSide = styled.h1`
- font-size: 100px;
- color: blue;
- text-align: center;
- background-color:red;
- height:300px;
- width:50%;
- line-height:300px;
- margin-top:0;
-`;
-const RightSide = styled.h1`
- font-size: 100px;
- text-align: center;
- background-color:#5eb407;
- color:black;
- height:300px;
- width:50%;
- line-height:300px;
- margin-top:0;
-`;
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
-height:100vh;
+height:822px;
+width:1440px;
+display:flex;
 background-color:#28bec6;
-display:flex; 
+color:white;
+font-size:60px;
+font-family:"Times New Roman";
 `;
-function LoginPage() {
+
+const Italic = styled.i`
+margin-left:450px;
+padding-top:300px;
+`;
+
+const Hobbies = styled.h2`
+color:white;
+`;
+function MainPage() {
     return (
-        <Container>
-        <LeftSide>Left half Page</LeftSide>
-        <RightSide>Right half Page</RightSide>
-        </Container>
+        <Container><Italic>Hello, My Name Is Ron!</Italic></Container>
+        <Hobbies>My Hobbies: Play PUBG  |  Read books  |  Chat with my friends</Hobbies>
     )
 }
 
-export default LoginPage;
+export default MainPage;
