@@ -2,6 +2,13 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+
 const Container = styled.div`
 height:822px;
 width:1440px;
