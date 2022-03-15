@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import styled from "styled-components";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Container = styled.div`
+height:822px;
+width:1440px;
+display:flex;
+background-color:#28bec6;
+color:white;
+font-size:60px;
+font-family:"Times New Roman";
+`;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Italic = styled.i`
+margin-left:450px;
+padding-top:300px;
+`;
+
+const Hobbies = styled.h2`
+color:white;
+`;
+function MainPage() {
+    return (
+        <Container><Italic>Hello, My Name Is Ron!</Italic></Container>
+        <Hobbies>My Hobbies: Play PUBG  |  Read books  |  Chat with my friends</Hobbies>
+    )
+}
+
+export default MainPage;
