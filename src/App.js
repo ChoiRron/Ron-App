@@ -1,12 +1,13 @@
-import { Router, Route } from "react-router-dom";
-import LoginPage from"./LoginPage"
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginPage from"./LoginPage/index"
+import MainPage from "./MainPage/index";
 
 function App() {
   return (
     <div>
       <Router>
-      <LoginPage exact path="/login" component={LoginPage}/>
-      <MainPage/>
+        <Route exact path="/" component={LoginPage}></Route>
+        <Route exact path="/main" component={MainPage}></Route>
       </Router>
     </div>
   )

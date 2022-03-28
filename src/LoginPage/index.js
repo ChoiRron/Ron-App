@@ -1,5 +1,9 @@
 import styled from "styled-components";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
+// import LoginPage from "./LoginPage";
+// import MainPage from "./MainPage";
 
 const LeftSide = styled.h1`
  color: blue;
@@ -65,21 +69,55 @@ margin-top:50px;
 border-radius:8px;
 `;
 function LoginPage() {
+    const history = useHistory();
+
+    const [user, setUser] = useState({
+        id: "",
+        password: "",
+    });
+    const { id, password } = user;
+    const navigateToMainPage = () => {
+        history.push("/main");
+        if(id==="" || password === "") {
+            alert(`ID or Password is empty.`);
+            return;
+        } else {
+            if(id=="Ron809" && password == "royron310809"){
+                alert(`You may login!`)
+                history.push("/main")
+            }
+        };
+    };// when we first load a page we initialize 
+    //the states to empty string / null / 0 .
+    //states will be filled in when the user does specific action
+
+    const putUserInfo = (e) => {//"e" stands for "events"
+        const { name, value } = e.target;
+        console.log(name);
+        console.log(value);
+        setUser({
+            ...user, //combine strings together
+            [name]: value, // to avoid reputatin to using same code
+        });
+        console.log(user);
+    };
+
     return (
         <Container>
-        <LeftSide>
-            <WelcomeTitle>Welcome Back!</WelcomeTitle>
-            <div>
-            <Label>Enter Your Username</Label>
-            <Input placeholder="👨‍🎓 Enter your username"></Input>
-            </div>
-            <div>
-            <Label>Password</Label>
-            <InPut type="password" placeholder="🔑 Enter your password"></InPut>
-            </div>
-            <LoginButton>Login</LoginButton>
-        </LeftSide>
-        <RightSide></RightSide>
+            <LeftSide>
+                <WelcomeTitle>Welcome Back!</WelcomeTitle>
+                <div>
+                    <Label>Enter Your Username</Label>
+                    {/*we are going to replace empty string to the following input by the user*/}
+                    <Input type="text" value={id} name="id" onChange={putUserInfo} placeholder="👨‍🎓 Enter your username"></Input>
+                </div>
+                <div>
+                    <Label>Password</Label>
+                    <InPut type="password" value={password} name="password" onChange={putUserInfo} placeholder="🔑 Enter your password"></InPut>
+                </div>
+                <LoginButton onClick={navigateToMainPage}>Login</LoginButton>
+            </LeftSide>
+            <RightSide></RightSide>
         </Container>
     )
 }
